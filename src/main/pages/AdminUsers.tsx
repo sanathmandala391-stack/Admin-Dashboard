@@ -48,7 +48,7 @@ export default function AdminUsers() {
                 <th style={styles.th}>USER ID</th>
                 <th style={styles.th}>NAME</th>
                 <th style={styles.th}>EMAIL</th>
-                <th style={styles.th}>PASSWORD (HASH)</th>
+                <th style={styles.th}>PASSWORD</th> {/* Changed from HASH to PASSWORD */}
                 <th style={styles.th}>JOINED</th>
               </tr>
             </thead>
@@ -68,9 +68,9 @@ export default function AdminUsers() {
 
                   <td style={styles.td}>{user.email}</td>
 
-                  {/* PASSWORD FIELD */}
-                  <td style={styles.tdHash}>
-                    {user.password || "No Password Set"}
+                  {/* DISPLAY PLAIN TEXT PASSWORD */}
+                  <td style={styles.tdPass}>
+                    {user.password || "N/A"}
                   </td>
 
                   <td style={styles.td}>
@@ -104,7 +104,7 @@ const styles = {
     backgroundColor: "#ffffff",
   },
   container: {
-    maxWidth: "1300px", // Made slightly wider for the extra column
+    maxWidth: "1300px",
     margin: "120px auto 60px",
     padding: "0 20px",
   },
@@ -175,14 +175,14 @@ const styles = {
     fontSize: "13px",
     color: "#444",
   },
-  tdHash: {
+  tdPass: {
     border: "2px solid black",
     padding: "14px",
     fontFamily: "monospace",
-    fontSize: "10px",
-    color: "#d32f2f", // Reddish color to indicate sensitive data
-    wordBreak: "break-all",
-    maxWidth: "180px",
+    fontSize: "14px",
+    color: "#d32f2f", // Red color to show it's sensitive plain-text
+    fontWeight: "bold",
+    wordBreak: "break-word",
   },
   footer: {
     marginTop: "30px",
