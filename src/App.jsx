@@ -8,6 +8,7 @@ import Featured from "./main/pages/Featured"
 import Products from "./main/pages/Products"
 import AdminProtectedRoute from "./main/auth/AdminProtectedRoute"
 import AdminOrders from "./main/pages/AdminOrders.js" // Renamed for clarity
+import AdminUsers from "./main/pages/AdminUsers.js"
 export default function App() {
   return (
     <BrowserRouter>
@@ -20,7 +21,7 @@ export default function App() {
             <Dashboard />
           </AdminProtectedRoute>
         } />
-
+        <Route path="/admin/users" element={<AdminUsers/>}/>
         <Route path="/heroes" element={<AdminProtectedRoute><Heroes /></AdminProtectedRoute>} />
         <Route path="/brands" element={<AdminProtectedRoute><Brands /></AdminProtectedRoute>} />
         <Route path="/featured" element={<AdminProtectedRoute><Featured /></AdminProtectedRoute>} />

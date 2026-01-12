@@ -8,7 +8,12 @@ export default function Dashboard() {
       <div className="admin-container">
         <h2 className="text-2xl font-bold mb-6">System Overview</h2>
         <div className="admin-grid">
-          {/* ✅ NEW ORDERS CARD */}
+          {/* ✅ USERS CARD */}
+          <Link to="/admin/users" className="stat-card">
+            <h3 className="font-bold text-blue-600">Users</h3>
+            <p>Manage Registered Customers</p>
+          </Link>
+
           <Link to="/admin/orders" className="stat-card">
             <h3 className="font-bold">Orders</h3>
             <p>Customer Sales & Status</p>
