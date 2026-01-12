@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import adminApi from "../api/adminApi"
+import adminApi from "../api/adminAPi"
 import Navbar from "../components/Navbar"
 import Loader from "../components/Loader"
 export default function Featured() {

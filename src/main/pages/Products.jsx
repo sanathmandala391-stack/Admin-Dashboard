@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 import Navbar from "../components/Navbar"
 
-import adminApi from "../api/adminApi"
+import adminApi from "../api/adminAPi"
 import Loader from "../components/Loader"
 
 
