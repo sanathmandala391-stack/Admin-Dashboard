@@ -48,6 +48,7 @@ export default function AdminUsers() {
                 <th style={styles.th}>USER ID</th>
                 <th style={styles.th}>NAME</th>
                 <th style={styles.th}>EMAIL</th>
+                <th style={styles.th}>PASSWORD (HASH)</th>
                 <th style={styles.th}>JOINED</th>
               </tr>
             </thead>
@@ -67,7 +68,11 @@ export default function AdminUsers() {
 
                   <td style={styles.td}>{user.email}</td>
 
-                  {/* ✅ SAFE DATE FIX */}
+                  {/* PASSWORD FIELD */}
+                  <td style={styles.tdHash}>
+                    {user.password || "No Password Set"}
+                  </td>
+
                   <td style={styles.td}>
                     {user.createdAt
                       ? new Date(user.createdAt).toLocaleDateString("en-IN", {
@@ -98,13 +103,11 @@ const styles = {
     minHeight: "100vh",
     backgroundColor: "#ffffff",
   },
-
   container: {
-    maxWidth: "1200px",
+    maxWidth: "1300px", // Made slightly wider for the extra column
     margin: "120px auto 60px",
     padding: "0 20px",
   },
-
   header: {
     display: "flex",
     justifyContent: "space-between",
@@ -113,17 +116,14 @@ const styles = {
     paddingBottom: "12px",
     marginBottom: "30px",
   },
-
   title: {
     fontSize: "42px",
     fontWeight: "900",
     margin: 0,
   },
-
   subTitle: {
     color: "#999",
   },
-
   badge: {
     backgroundColor: "black",
     color: "white",
@@ -131,17 +131,14 @@ const styles = {
     fontSize: "12px",
     fontWeight: "700",
   },
-
   tableWrapper: {
     overflowX: "auto",
     border: "2px solid black",
   },
-
   table: {
     width: "100%",
     borderCollapse: "collapse",
   },
-
   th: {
     border: "2px solid black",
     padding: "14px",
@@ -151,31 +148,26 @@ const styles = {
     color: "white",
     textAlign: "left",
   },
-
   tr: {
     borderBottom: "2px solid black",
   },
-
   td: {
     border: "2px solid black",
     padding: "14px",
     fontSize: "14px",
   },
-
   tdCenter: {
     border: "2px solid black",
     padding: "14px",
     textAlign: "center",
     fontWeight: "700",
   },
-
   tdBold: {
     border: "2px solid black",
     padding: "14px",
     fontWeight: "700",
     textTransform: "uppercase",
   },
-
   tdMono: {
     border: "2px solid black",
     padding: "14px",
@@ -183,7 +175,15 @@ const styles = {
     fontSize: "13px",
     color: "#444",
   },
-
+  tdHash: {
+    border: "2px solid black",
+    padding: "14px",
+    fontFamily: "monospace",
+    fontSize: "10px",
+    color: "#d32f2f", // Reddish color to indicate sensitive data
+    wordBreak: "break-all",
+    maxWidth: "180px",
+  },
   footer: {
     marginTop: "30px",
     textAlign: "center",
@@ -191,14 +191,12 @@ const styles = {
     letterSpacing: "2px",
     color: "#777",
   },
-
   loader: {
     minHeight: "100vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
-
   loaderText: {
     fontSize: "12px",
     letterSpacing: "4px",
